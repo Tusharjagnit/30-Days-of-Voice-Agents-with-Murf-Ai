@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakSmart AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎙️ SpeakSmart AI</h1>
+            <h3>Your intelligent voice companion – convert text to lifelike speech and interact with AI using natural voice technology.</h3>
+        </header>
+        
+        <main>
+            <section class="tts-section">
+                <h2>🎵 Text-to-Speech with Audio Playback</h2>
+                <p>Enter your text below and click "Generate Audio" to create and play TTS audio.</p>
+                
+                <div class="tts-form">
+                    <div class="form-group">
+                        <label for="text-input">Enter your text:</label>
+                        <textarea 
+                            id="text-input" 
+                            placeholder="Type or paste your text here..."
+                            rows="4"
+                            maxlength="500"
+                        ></textarea>
+                        <div class="char-count">
+                            <span id="char-count">0</span>/500 characters
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="voice-select">Select Voice:</label>
+                        <select id="voice-select">
+                            <option value="en-US-charles">Charles (US English)</option>
+                            <option value="en-US-julia">Julia (US English)</option>
+                            <option value="en-IN-aarav">Aarav (Indian English)</option>
+                            <option value="en-UK-juliet">Juliet (UK English)</option>
+                            <option value="en-AU-kylie">Kylie (Australian English)</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generate-btn" class="btn primary">
+                        <span class="btn-text">🎵 Generate Audio</span>
+                        <span class="btn-loading" style="display: none;">⏳ Generating...</span>
+                    </button>
+                </div>
+                
+                <div id="audio-section" class="audio-section" style="display: none;">
+                    <h3>🎧 Audio Player</h3>
+                    <div class="audio-player">
+                        <audio id="audio-player" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-info">
+                        <p><strong>Generated Text:</strong> <span id="generated-text"></span></p>
+                        <p><strong>Voice:</strong> <span id="generated-voice"></span></p>
+                        <p><strong>Status:</strong> <span id="audio-status">Ready to play</span></p>
+                    </div>
+                </div>
+                
+                <div id="error-section" class="error-section" style="display: none;">
+                    <h3>❌ Error</h3>
+                    <p id="error-message"></p>
+                </div>
+            </section>
+            
+            <!-- Echo Bot Section -->
+            <section class="echo-bot-section">
+                <h1>🤖 Echo Bot</h1>
+                <p>Record your voice and play it back with this simple Echo Bot.</p>
+                
+                <div class="echo-bot-controls">
+                    <button id="start-recording-btn" class="btn primary">🎙️ Start Recording</button>
+                    <button id="stop-recording-btn" class="btn secondary" disabled>⏹️ Stop Recording</button>
+                </div>
+                
+                <div id="echo-audio-section" class="audio-section" style="display: none;">
+                    <h3>🎧 Your Recording</h3>
+                    <div class="audio-info">
+                        <p><strong>Status:</strong> <span id="echo-audio-status">No recording yet</span></p>
+                    </div>
+                </div>
+
+                <div id="ai-echo-section" class="audio-section" style="display: none;">
+                    <h3>🗣️ AI Echo (Murf Voice)</h3>
+                    <div class="audio-player">
+                        <audio id="ai-echo-player" controls>
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-info">
+                        <p><strong>Status:</strong> <span id="ai-echo-status">Waiting for AI echo...</span></p>
+                    </div>
+                </div>
+                
+                <div id="echo-error-section" class="error-section" style="display: none;">
+                    <h3>❌ Error</h3>
+                    <p id="echo-error-message"></p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>🚀 Part of the 30 Days of Voice Agents Challenge</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>

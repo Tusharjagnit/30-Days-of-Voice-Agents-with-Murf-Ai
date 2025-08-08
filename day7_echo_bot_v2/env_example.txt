@@ -1,0 +1,7 @@
+# Murf API Configuration
+# Get your API key from: https://app.murf.ai/
+MURF_API_KEY=your_murf_api_key_here
+
+# Optional: Server Configuration
+HOST=0.0.0.0
+PORT=8000 
